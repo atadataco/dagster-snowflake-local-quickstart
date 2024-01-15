@@ -14,7 +14,7 @@ This guide covers:
     - [Option 2: Running it locally](#option-2-running-it-locally)
   - [Step 1: Materializing assets](#step-1-materializing-assets)
   - [Step 2: Viewing and monitoring assets](#step-2-viewing-and-monitoring-assets)
-  - [Step 3: Reviewing the Snowflake materialized tables] (#step-3-Reviewing-the-Snowflake-materialized-tables))
+  - [Step 3: Reviewing the Snowflake materialized tables](#step-3-Reviewing-the-Snowflake-materialized-tables)
   - [Step 4: Scheduling a daily job](#step-3-scheduling-a-daily-job)
     - [(Optional) Running daemon locally](#optional-running-daemon-locally)
   - [Learning more](#learning-more)
