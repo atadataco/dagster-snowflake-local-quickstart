@@ -40,7 +40,7 @@ In this project, we're building an analytical pipeline that explores popular top
 This project:
 
 - Fetches data from [HackerNews](https://github.com/HackerNews/API) APIs and stores the data in [Snowflake](https://www.snowflake.com).
-- Transforms the collected data using [Pandas](http://pandas.pydata.org/pandas-docs/stable/).
+- Transform the collected data using [Pandas](http://pandas.pydata.org/pandas-docs/stable/).
 - Creates a [word cloud](https://github.com/amueller/word_cloud) based on trending HackerNews stories to visualize popular topics on HackerNews.
 
 ## Prerequisites
