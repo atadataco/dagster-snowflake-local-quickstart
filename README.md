@@ -14,27 +14,22 @@ This guide covers:
     - [Option 2: Running it locally](#option-2-running-it-locally)
   - [Step 1: Materializing assets](#step-1-materializing-assets)
   - [Step 2: Viewing and monitoring assets](#step-2-viewing-and-monitoring-assets)
-  - [Step 3: Scheduling a daily job](#step-3-scheduling-a-daily-job)
+  - [Step 3: Reviewing the Snowflake materialized tables] (#step-3-Reviewing-the-Snowflake-materialized-tables))
+  - [Step 4: Scheduling a daily job](#step-3-scheduling-a-daily-job)
     - [(Optional) Running daemon locally](#optional-running-daemon-locally)
   - [Learning more](#learning-more)
     - [Changing the code locally](#changing-the-code-locally)
     - [Adding new Python dependencies](#adding-new-python-dependencies)
     - [Testing](#testing)
 
-
-Hello, this is Bing. I can help you rewrite your GitHub readme using the latest Dagster concepts and best practices. 😊
-
-Here is a possible rewrite of your readme:
-
-```markdown
 ## Introduction
 
 This starter kit includes:
 - Basics of creating, connecting, and testing [assets](https://docs.dagster.io/concepts/assets/software-defined-assets) in Dagster.
 - Convenient ways to organize and monitor assets, e.g. [grouping assets](https://docs.dagster.io/concepts/assets/software-defined-assets#grouping-assets), [recording asset metadata](https://docs.dagster.io/concepts/assets/software-defined-assets#recording-materialization-metadata), etc.
 - [Snowflake I/O manager](https://docs.dagster.io/_apidocs/libraries/dagster-snowflake) to load the datasets in Snowflake and read from it, which [uses environment variables](https://docs.dagster.io/guides/dagster/using-environment-variables-and-secrets) to handle credentials.
-- A [schedule](https://docs.dagster.io/concepts/partitions-schedules-sensors/schedules) defined to run a job that generates assets daily.
-- [Scaffolded project layout](https://docs.dagster.io/getting-started/create-new-project) that helps you to quickly get started with everything set up.
+- A [schedule](https://docs.dagster.io/concepts/partitions-schedules-sensors/schedules) is defined to run a job that generates assets daily.
+- [Scaffolded project layout](https://docs.dagster.io/getting-started/create-new-project) that helps you to get started with everything set up quickly.
 
 In this project, we're building an analytical pipeline that explores popular topics on HackerNews.
 
@@ -90,10 +85,10 @@ SNOWFLAKE_DATABASE  = "[SNOWFLAKE_DATABASE]"
 SNOWFLAKE_SCHEMA    = "[SNOWFLAKE_SCHEMA]" 
 ```
 
-- Make sure to add the `.env` file to your `.gitignore` file to avoid exposing your secrets to version control.
+- Add the `.env` file to your `.gitignore` file to avoid exposing your secrets to version control.
 
 
-As of Dagster 1.1.0, using .env files is supported for loading environment variables into local environments. A .env file is a text file containing key-value pairs that is used locally, but not checked into source control. Using a .env file allows you to develop and test locally without putting sensitive info at risk. 
+As of Dagster 1.1.0, using .env files is supported for loading environment variables into local environments. A .env file is a text file containing key-value pairs that is used locally, but not checked into source control. Using a .env file allows you to develop and test locally without risking sensitive info. 
 
 If Dagster detects a .env file in the same folder where dagster-webserver or dagster-daemon is launched, it will automatically load the environment variables in the file. This also applies to variables exported from Dagster Cloud.
 
@@ -102,12 +97,12 @@ When using a .env file, keep the following in mind:
 - Any time the .env file is modified, the workspace must be re-loaded to make the Dagster webserver/UI aware of the changes
 
 ### Accessing environment variables
-In this section, we'll demonstrate how to access environment variables once they've been declared. There are two ways to do this:
+This section will demonstrate how to access environment variables once declared. There are two ways to do this:
 1. In Python code, which isn't specific to Dagster.
 2. From Dagster configuration, which incorporates environment variables into the Dagster config system.
 
 ### In Python code
-To access environment variables in your Dagster code, you can use os.getenv:
+To access environment variables in your Dagster code, you can use `os.getenv`:
 ```python
 import os
 
@@ -120,7 +115,7 @@ import os
 deployment_name = os.getenv("DAGSTER_CLOUD_DEPLOYMENT_NAME")
 ```
 
-Refer to the Dagster Cloud Branch Deployments example for a real-world example.
+Please look at the Dagster Cloud Branch Deployments example for a real-world example.
 
 Check out [Using environment variables and secrets guide](https://docs.dagster.io/guides/dagster/using-environment-variables-and-secrets) for more info and examples.
 
@@ -142,7 +137,7 @@ Check out [Definitions documentation](https://docs.dagster.io/_apidocs/definitio
 
 ### Running it locally
 
-First, install your Dagster repository as a Python package. By using the `--editable` flag, pip will install your repository in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply. Check out [Dagster Installation](https://docs.dagster.io/getting-started/install) for more information.
+First, you can go ahead and install your Dagster repository as a Python package. By using the `--editable` flag, pip will install your repository in ["editable mode"](https://pip.pypa.io/en/latest/topics/local-project-installs/#editable-installs) so that as you develop, local code changes will automatically apply. Check out [Dagster Installation](https://docs.dagster.io/getting-started/install) for more information.
 
 ```bash
 pip install -e ".[dev]"
